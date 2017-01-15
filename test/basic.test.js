@@ -41,13 +41,13 @@ const r = new Readable({
 
 setInterval(function () {
     r.push('frog-' + i++);
-}, 1000);
+}, 500);
 
 
 const dest1 = new Writable({
     write: function (c, enc, cb) {
         console.log(' => chunk => ', c);
-        setTimeout(cb, 1000);
+        setTimeout(cb, 500);
     }
 });
 
@@ -55,14 +55,14 @@ const dest1 = new Writable({
 const dest2 = new Writable({
     write: function (c, enc, cb) {
         console.log(' => chunk => ', c);
-        setTimeout(cb, 1000);
+        setTimeout(cb, 500);
     }
 });
 
 const dest3 = new Writable({
     write: function (c, enc, cb) {
         console.log(' => chunk => ', c);
-        setTimeout(cb, 1000);
+        setTimeout(cb, 500);
     }
 });
 
