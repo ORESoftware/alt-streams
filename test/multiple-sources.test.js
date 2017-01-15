@@ -5,16 +5,8 @@ const Readable = require('../lib/readable');
 
 let i = 0;
 
-const r = new Readable({
-
-    load: function(size, cb){
-
-
-
-    },
-
+const r1 = new Readable({
     read: function (size, cb) {
-
         const v = this.shift();
         if (v) {
             cb(null, v);
@@ -22,16 +14,35 @@ const r = new Readable({
     }
 });
 
+const r2 = new Readable({
+    read: function (size, cb) {
+        const v = this.shift();
+        if (v) {
+            cb(null, v);
+        }
+    }
+});
+
+// const r = new Readable({
+//     read: function (size, cb) {
+//         setTimeout(function () {
+//             cb(null, i++);
+//         });
+//     }
+// });
 
 
 
-setInterval(function () {
+const interval = setInterval(function () {
 
     if(i > 40){
-        r.end();
+        r1.end();
+        r2.end();
+        clearInterval(interval);
     }
     else{
-        r.push('frog-' + i++);
+        r1.push('frog-' + i++);
+        r2.push('blah-' + i++);
     }
 
 }, 50);
@@ -55,5 +66,6 @@ process.once('exit', function(){
 });
 
 
-r.pipe(dest1);
-
+r1.pipe(dest1);
+r2.pipe(dest1);
+r2.pipe(dest1);

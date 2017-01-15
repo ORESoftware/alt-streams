@@ -17,7 +17,8 @@
     "tcp",
     "duplex",
     "streaming",
-    "buffering"
+    "buffering",
+    "transform"
   ],
   "author": "Olegzandr",
   "license": "ISC",

@@ -19,7 +19,7 @@ const r = new Readable({
 
 setInterval(function () {
     r.push('frog-' + i++);
-}, 1000);
+}, 100);
 
 
 const dest1 = new Writable({
