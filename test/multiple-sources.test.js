@@ -60,9 +60,7 @@ const start = Date.now();
 
 
 process.once('exit', function(){
-
     console.log(' => Time when ended => ', Date.now() - start);
-
 });
 
 
