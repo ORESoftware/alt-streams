@@ -21,4 +21,4 @@ $add.subscribe(function(v){
 
 $add.subscribe(function(v){
     console.log('v2 => ', v);
-})
+});
